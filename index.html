@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="Ruffle Example">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="language" content="English">
-  <title>Ruffle Example</title>
-  <script src="main.js"></script> 
-  <noscript>Your browser doesn't have JavaScript enabled. Please enable JavaScript or switch to a browser that
-    supports it.</noscript>
-</head>
-<body>
-<div id='ruffle' class="gameloc"></div>
-<script src='https://maddox05.github.io/ruffle-example/ruffle/index.js'></script> <!-- Theses files should be local -->
-<script id = "gabe">swfobject.embedSWF("https://files.catbox.moe/4ajind.swf", 'ruffle', 800, 600);</script> <!-- Theses files should be local -->
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Life With The Vegas</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"><link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" /><style>body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #000; color: #fff; } .container { max-width: 100%; margin: auto; padding: 20px; } header { background: #333; color: #fff; padding: 10px 0; text-align: center; } header h1 { font-family: 'Bebas Neue', cursive; color: #e50914; margin: 0; } .video-player { position: relative; width: 100%; padding-top: 56.25%; margin: 20px 0; background: #000; } .video-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; } .episodes { margin: 20px 0; } .episode { margin: 10px 0; } .episode a { text-decoration: none; color: #e50914; cursor: pointer; } .episode a:hover { text-decoration: underline; } .bottom-button { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #e50914; color: #fff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px; } .bottom-button:hover { background-color: #c81013; } .intro-image { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('vid/prev.png') no-repeat center center; background-size: cover; z-index: 9999; opacity: 1; transition: opacity 2s ease-out; display: none; } .who-watching { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10000; } .who-watching button { background-color: #e50914; color: #fff; border: none; padding: 15px 30px; font-size: 20px; cursor: pointer; border-radius: 5px; } .who-watching button:hover { background-color: #c81013; } .download-button { display: block; margin-top: 20px; text-align: center; } .download-button a { color: #fff; background-color: #e50914; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; } .download-button a:hover { background-color: #c81013; }</style></head><body><div class="who-watching" id="who-watching"><button id="start-intro">Guest</button></div><header><h1>Life With The Vegas</h1></header><div class="container"><div class="intro-image" id="intro-image"></div><div class="video-player"><video id="my-video" class="video-js vjs-default-skin" controls preload="auto" poster="vid/prev.png" data-setup="{}"><source id="videoSource" src="vid/trailer.mp4" type="video/mp4" /><p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p></video></div><div class="download-button"><a id="download-link" href="vid/trailer.mp4" download>Download Video</a></div></div>
+    
+    <!-- Episodes Area -->
+<div class="episodes"><h2>Episodes</h2>
+    <div class="episode"><a data-src="vid/pilot.mp4" data-title="Pilot">Pilot</a></div> 
+    <div class="episode"><a data-src="vid/2.mp4" data-title="Brotherly Bonding">Brotherly Bonding</a></div> 
+    
+    <!-- Movies Area --->
+    <h2>Movies</h2>
+    <div class="episode"><a data-src="vid/yourvidhere.mp4" data-title="PLCHLD">Placeholder</a></div></div>
+    
+    <!-- Trailers Area -->
+    <h2>Trailers</h2>
+    <div class="episode"><a data-src="vid/trailer.mp4" data-title="Trailer">Trailer</a></div></div>
+
+
+    <button class="bottom-button" id="free-plan-button">Free Plan</button><script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script><script>const videoPlayer = videojs('my-video'); const videoSource = document.getElementById('videoSource'); const introImage = document.getElementById('intro-image'); const startIntroButton = document.getElementById('start-intro'); const whoWatching = document.getElementById('who-watching'); const downloadLink = document.getElementById('download-link'); startIntroButton.addEventListener('click', () => { whoWatching.style.display = 'none'; introImage.style.display = 'block'; setTimeout(() => { introImage.style.opacity = '0'; setTimeout(() => { introImage.style.display = 'none'; }, 2000); }, 1000); }); document.querySelectorAll('.episode a').forEach(button => { button.addEventListener('click', function() { const newSrc = this.getAttribute('data-src'); videoPlayer.src({ type: 'video/mp4', src: newSrc }); videoPlayer.load(); videoPlayer.play(); document.title = this.getAttribute('data-title'); downloadLink.href = newSrc; }); }); document.getElementById('free-plan-button').addEventListener('click', function() { const newSrc = 'vid/dum.mp4'; videoSource.src = newSrc; videoPlayer.src({ type: 'video/mp4', src: newSrc }); videoPlayer.load(); videoPlayer.play(); document.title = 'Free Plan'; downloadLink.href = newSrc; }); videoPlayer.on('ended', function() { videoPlayer.pause(); videoPlayer.src({ type: 'video/mp4', src: '' }); });</script><p>© Luis Vega, 2024</p><a href=basic.html>More Basic Version For Old PCs</a></body></html>
